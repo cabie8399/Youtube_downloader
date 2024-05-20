@@ -12,26 +12,13 @@ import pytube_features
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        self.youtube_url = 'https://www.youtube.com/watch?v=Y8JFxS1HlDo&ab_channel=STARSHIP'
+        # self.youtube_url = 'https://www.youtube.com/watch?v=Y8JFxS1HlDo&ab_channel=STARSHIP'
         self.download_path = 'C:/Users/arif1/Downloads'
 
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(523, 216)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-
-        self.lineEdit = QtWidgets.QLineEdit(parent=self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(110, 50, 341, 21))
-        self.lineEdit.setText("")
-        self.lineEdit.setObjectName("lineEdit")
-
-        self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(200, 130, 75, 24))
-        self.pushButton.setObjectName("pushButton")
-
-        self.pushButton_2 = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(280, 130, 75, 24))
-        self.pushButton_2.setObjectName("pushButton_2")
 
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
         self.label.setGeometry(QtCore.QRect(40, 50, 53, 16))
@@ -41,15 +28,28 @@ class Ui_MainWindow(object):
         self.label_2.setGeometry(QtCore.QRect(40, 80, 53, 16))
         self.label_2.setObjectName("label_2")
 
+        self.lineEdit = QtWidgets.QLineEdit(parent=self.centralwidget)
+        self.lineEdit.setGeometry(QtCore.QRect(110, 50, 341, 21))
+        self.lineEdit.setText("")
+        self.lineEdit.setObjectName("lineEdit")
+
         self.lineEdit_2 = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(110, 80, 251, 21))
         self.lineEdit_2.setText("")
         self.lineEdit_2.setObjectName("lineEdit_2")
 
+        self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(200, 130, 75, 24))
+        self.pushButton.setObjectName("pushButton")
+
+        self.pushButton_2 = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(280, 130, 75, 24))
+        self.pushButton_2.setObjectName("pushButton_2")
+
         self.pushButton_3 = QtWidgets.QPushButton(parent=self.centralwidget)
         self.pushButton_3.setGeometry(QtCore.QRect(370, 80, 75, 24))
         self.pushButton_3.setObjectName("pushButton_3")
-        
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 523, 22))
@@ -80,6 +80,7 @@ class Ui_MainWindow(object):
         '''
         下載影片
         '''
+        self.youtube_url = self.lineEdit.text()
         pyt = pytube_features.PytubeDownload(self.youtube_url, self.download_path)
         pyt.download_video()
 
@@ -87,6 +88,7 @@ class Ui_MainWindow(object):
         '''
         下載MP3
         '''
+        self.youtube_url = self.lineEdit.text()
         pyt = pytube_features.PytubeDownload(self.youtube_url, self.download_path)
         pyt.download_audio()
 

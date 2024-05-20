@@ -11,11 +11,13 @@ class PytubeDownload():
         self.filename = self.yt.title
 
     def download_video(self):
+        print(self.youtube_url)
         print('download video...')
         self.yt.streams.filter().get_highest_resolution().download()
         print('Finished!')
 
     def download_audio(self):
+        print(self.youtube_url)
         print('download audio...')
         # 原本取得audio的方法
         # self.yt.streams.filter().get_audio_only().download()
