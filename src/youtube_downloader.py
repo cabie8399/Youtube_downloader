@@ -7,10 +7,14 @@
 
 import sys
 from PyQt6 import QtCore, QtWidgets
+import pytube_features
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
+        self.youtube_url = 'https://www.youtube.com/watch?v=Y8JFxS1HlDo&ab_channel=STARSHIP'
+        self.download_path = 'C:/Users/arif1/Downloads'
+
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(523, 216)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
@@ -56,6 +60,11 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
+
+        # bind按鈕事件
+        # self.pushButton.clicked.connect(MainWindow.close)
+        self.pushButton.clicked.connect(self.downloadVideo)
+        self.pushButton_2.clicked.connect(self.downloadAudio)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -67,10 +76,23 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "下載至"))
         self.pushButton_3.setText(_translate("MainWindow", "選擇資料夾"))
 
+    def downloadVideo(self):
+        '''
+        下載影片
+        '''
+        pyt = pytube_features.PytubeDownload(self.youtube_url, self.download_path)
+        pyt.download_video()
+
+    def downloadAudio(self):
+        '''
+        下載MP3
+        '''
+        pyt = pytube_features.PytubeDownload(self.youtube_url, self.download_path)
+        pyt.download_audio()
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    # 设置窗口风格
     app.setStyle("Fusion") 
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()

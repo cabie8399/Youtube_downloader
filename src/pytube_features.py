@@ -8,6 +8,7 @@ class PytubeDownload():
         self.youtube_url = youtube_url
         os.chdir(download_path)
         self.yt = YouTube(youtube_url)
+        self.filename = self.yt.title
 
     def download_video(self):
         print('download video...')
@@ -16,5 +17,9 @@ class PytubeDownload():
 
     def download_audio(self):
         print('download audio...')
-        self.yt.streams.filter().get_audio_only().download()
+        # 原本取得audio的方法
+        # self.yt.streams.filter().get_audio_only().download()
+        self.yt.streams.filter(only_audio=True).first().download(
+            filename = self.filename + '.mp3'
+        )
         print('Finished!')
