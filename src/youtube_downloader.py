@@ -12,7 +12,6 @@ import pytube_features
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        # self.youtube_url = 'https://www.youtube.com/watch?v=Y8JFxS1HlDo&ab_channel=STARSHIP'
         self.download_path = 'C:/Users/arif1/Downloads'
 
         MainWindow.setObjectName("MainWindow")
@@ -65,6 +64,7 @@ class Ui_MainWindow(object):
         # self.pushButton.clicked.connect(MainWindow.close)
         self.pushButton.clicked.connect(self.downloadVideo)
         self.pushButton_2.clicked.connect(self.downloadAudio)
+        self.pushButton_3.clicked.connect(self.open)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -91,6 +91,10 @@ class Ui_MainWindow(object):
         self.youtube_url = self.lineEdit.text()
         pyt = pytube_features.PytubeDownload(self.youtube_url, self.download_path)
         pyt.download_audio()
+
+    def open(self):
+        filePath = QtWidgets.QFileDialog.getExistingDirectory()  # 選擇檔案對話視窗
+        print("選擇資料夾 : " + filePath)
 
 
 if __name__ == '__main__':
