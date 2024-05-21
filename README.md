@@ -3,4 +3,4 @@
 
 - [Window(.exe)](https://github.com/cabie8399/youtube_downloader/releases)
 <br>
-![](./src/img/v1.0.0.jpg)
+![](https://images2.imgbox.com/d4/cd/beydnhHq_o.jpg)
