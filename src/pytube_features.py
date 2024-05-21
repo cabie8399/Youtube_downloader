@@ -11,11 +11,9 @@ class PytubeDownload():
         self.filename = self.yt.title
 
     def download_video(self):
-        print(self.youtube_url)
         self.yt.streams.filter().get_highest_resolution().download()
 
     def download_audio(self):
-        print(self.youtube_url)
         # 原本取得audio的方法
         # self.yt.streams.filter().get_audio_only().download()
         self.yt.streams.filter(only_audio=True).first().download(filename = self.filename + '.mp3')
