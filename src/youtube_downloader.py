@@ -56,7 +56,6 @@ class Ui_MainWindow(object):
 
         self.progressBar = QtWidgets.QProgressBar(parent=self.centralwidget)
         self.progressBar.setGeometry(QtCore.QRect(110, 180, 330, 23))
-        # self.progressBar.setProperty("value", 24)
         self.progressBar.setFormat('%p%')
         self.progressBar.setRange(0, 100)
         self.progressBar.setValue(0)
@@ -94,7 +93,7 @@ class Ui_MainWindow(object):
         '''
         self.youtube_url = self.lineEdit.text()
         pyt = pytube_features.PytubeDownload(self.youtube_url, self.download_path, self.progressBar)
-        pyt.download_video()
+        pyt.downloadVideo()
 
     def downloadAudio(self):
         '''
@@ -102,7 +101,7 @@ class Ui_MainWindow(object):
         '''
         self.youtube_url = self.lineEdit.text()
         pyt = pytube_features.PytubeDownload(self.youtube_url, self.download_path, self.progressBar)
-        pyt.download_audio()
+        pyt.downloadAudio()
 
     def userDownloadPath(self):
         '''
