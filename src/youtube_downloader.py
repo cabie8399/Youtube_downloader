@@ -15,7 +15,7 @@ class Ui_MainWindow(object):
         self.download_path = self.userDownloadPath()
 
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(523, 216)
+        MainWindow.resize(538, 280)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
@@ -43,16 +43,24 @@ class Ui_MainWindow(object):
         self.lineEdit_2.setObjectName("lineEdit_2")
 
         self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(200, 130, 75, 24))
+        self.pushButton.setGeometry(QtCore.QRect(180, 130, 75, 24))
         self.pushButton.setObjectName("pushButton")
 
         self.pushButton_2 = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(280, 130, 75, 24))
+        self.pushButton_2.setGeometry(QtCore.QRect(260, 130, 75, 24))
         self.pushButton_2.setObjectName("pushButton_2")
 
         self.pushButton_3 = QtWidgets.QPushButton(parent=self.centralwidget)
         self.pushButton_3.setGeometry(QtCore.QRect(370, 80, 75, 24))
         self.pushButton_3.setObjectName("pushButton_3")
+
+        self.progressBar = QtWidgets.QProgressBar(parent=self.centralwidget)
+        self.progressBar.setGeometry(QtCore.QRect(110, 180, 330, 23))
+        # self.progressBar.setProperty("value", 24)
+        self.progressBar.setFormat('%p%')
+        self.progressBar.setRange(0, 100)
+        self.progressBar.setValue(0)
+        self.progressBar.setObjectName("progressBar")
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
@@ -85,7 +93,7 @@ class Ui_MainWindow(object):
         下載影片
         '''
         self.youtube_url = self.lineEdit.text()
-        pyt = pytube_features.PytubeDownload(self.youtube_url, self.download_path)
+        pyt = pytube_features.PytubeDownload(self.youtube_url, self.download_path, self.progressBar)
         pyt.download_video()
 
     def downloadAudio(self):
@@ -93,7 +101,7 @@ class Ui_MainWindow(object):
         下載MP3
         '''
         self.youtube_url = self.lineEdit.text()
-        pyt = pytube_features.PytubeDownload(self.youtube_url, self.download_path)
+        pyt = pytube_features.PytubeDownload(self.youtube_url, self.download_path, self.progressBar)
         pyt.download_audio()
 
     def userDownloadPath(self):
