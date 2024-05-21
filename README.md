@@ -5,3 +5,17 @@
 <br>
 
 ![](https://images2.imgbox.com/d4/cd/beydnhHq_o.jpg)
+
+
+# 執行程式
+```bash
+cd src
+python main.py
+```
+
+# 打包成.exe
+```basg
+cd src
+pyinstaller -i .\img\yt.png -w main.py
+```
+- 會生成/dist，將img/整個資料夾複製到/dist/main，否則icon會消失
