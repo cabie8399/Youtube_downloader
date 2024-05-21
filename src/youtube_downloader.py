@@ -21,7 +21,7 @@ class Ui_MainWindow(object):
 
         # icon更換
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(".\\yt.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap(".\\img\\yt.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
 
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
