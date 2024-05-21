@@ -4,7 +4,7 @@
 - [Window(.exe)](https://github.com/cabie8399/youtube_downloader/releases)
 <br>
 
-![](https://images2.imgbox.com/de/c3/7TNkQ7Ic_o.jpg)
+![](https://images2.imgbox.com/e2/e0/dttX4PTb_o.jpg)
 
 
 # 執行程式
